@@ -75,7 +75,7 @@ static float  Scale       = lerp(lerp(15.0, 50.0, _ScalePlus), 0.0, _ScaleMinus)
 static float  MaxOffset   = max(Scale, 0.0) * 0.01;
 static float2 MaxOffsetXY = MaxOffset * saturate(float2(1.0 - _HorizontalMinus, 1.0 - _VerticalMinus));
 static float  MaxAngle    = lerp(lerp(lerp(0.05, 1.0, _RotationPlus), 0.0, _RotationMinus), 0.0, _ScaleMinus) * PI / 8.0;
-static float  Frequency   = lerp(lerp(7.0, 15.0, _FrequencyPlus), 0.05, _FrequencyMinus);
+static float  Frequency   = lerp(lerp(12.0, 24.0, _FrequencyPlus), 0.05, _FrequencyMinus);
 static float  Velocity    = Frequency * FBMTextureBlockSize * 2.0;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
