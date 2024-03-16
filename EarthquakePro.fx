@@ -26,9 +26,13 @@ sampler2D ScnSamp = sampler_state {
     AddressV  = CLAMP;
 };
 
+#ifndef FBM_TEXTURE_NAME
+#define FBM_TEXTURE_NAME "fbm1d3ch.png"
+#endif
+
 // 非整数ブラウン運動によるノイズ画像
 texture2D FBMTexture <
-    string ResourceName = "fbm1d3ch.png";
+    string ResourceName = FBM_TEXTURE_NAME;
     int    MipLevels    = 1;
 >;
 sampler2D FBMSamp = sampler_state {
@@ -50,7 +54,9 @@ float Time : TIME <bool SyncInEditMode=true;>;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
+#ifndef CONTROLLER_NAME
 #define CONTROLLER_NAME "EarthquakeProController.pmx"
+#endif
 
 float _Level           : CONTROLOBJECT < string name=CONTROLLER_NAME; string item="レベル"; >;
 float _RotationPlus    : CONTROLOBJECT < string name=CONTROLLER_NAME; string item="回転+"; >;
