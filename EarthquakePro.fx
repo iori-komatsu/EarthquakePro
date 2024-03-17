@@ -71,7 +71,7 @@ float _FrequencyMinus  : CONTROLOBJECT < string name=CONTROLLER_NAME; string ite
 float3 _BPM    : CONTROLOBJECT < string name=CONTROLLER_NAME; string item="BPM"; >;
 float3 _Timing : CONTROLOBJECT < string name=CONTROLLER_NAME; string item="タイミング調整"; >;
 
-static float  Scale       = lerp(lerp(15.0, 50.0, _ScalePlus), 0.0, _ScaleMinus);
+static float  Scale       = lerp(lerp(8.0, 50.0, _ScalePlus), 0.0, _ScaleMinus);
 static float  MaxOffset   = max(Scale, 0.0) * 0.01;
 static float2 MaxOffsetXY = MaxOffset * saturate(float2(1.0 - _HorizontalMinus, 1.0 - _VerticalMinus));
 static float  MaxAngle    = lerp(lerp(lerp(0.05, 1.0, _RotationPlus), 0.0, _RotationMinus), 0.0, _ScaleMinus) * PI / 8.0;
