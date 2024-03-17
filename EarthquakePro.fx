@@ -82,10 +82,10 @@ static float  Velocity    = Frequency * FBMTextureBlockSize * 2.0;
 
 // p must be ÅÜ 0
 float3 FBM(float p) {
-    p = fmod(p, FBMTextureSize * FBMTextureSize);
-    float x = fmod(p, FBMTextureSize);
-    float y = floor(p / FBMTextureSize);
-    float2 uv = float2(x, y) / FBMTextureSize;
+    p = fmod(p, FBMTextureSize * FBMTextureSize); // 0 ÅÖ p < FBMTextureSize^2
+    float x = fmod(p, FBMTextureSize);   // 0 ÅÖ x < FBMTextureSize
+    float y = floor(p / FBMTextureSize); // 0 ÅÖ y < FBMTextureSize
+    float2 uv = (float2(x, y) + 0.5) / FBMTextureSize;
     float3 h = tex2Dlod(FBMSamp, float4(uv, 0, 0)).rgb; // 0 ÅÖ h ÅÖ 1
     return (h - 0.5) * 2.0;
 }
