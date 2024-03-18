@@ -8,14 +8,14 @@ float Script : STANDARDSGLOBAL <
     string ScriptOrder  = "postprocess";
 > = 0.8;
 
-texture DepthBuffer : RENDERDEPTHSTENCILTARGET<
+texture2D DepthBuffer : RENDERDEPTHSTENCILTARGET<
     float2 ViewportRatio = {1.0, 1.0};
     string Format        = "D24S8";
 >;
 texture2D ScnMap : RENDERCOLORTARGET<
     float2 ViewportRatio = {1.0, 1.0};
     int    MipLevels     = 1;
-    string Format        = "A8B8G8R8";
+    string Format        = "A8R8G8B8";
 >;
 sampler2D ScnSamp = sampler_state {
     texture   = <ScnMap>;
